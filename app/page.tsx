@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import FAQSchema from '@/components/faq-schema'
 
 export const metadata: Metadata = {
@@ -51,10 +52,15 @@ export default function HomePage() {
       
       {/* Hero Section */}
       <section className="bg-brand-black text-brand-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a84b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-generator.png"
+            alt="Industrial diesel generator"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent" />
         </div>
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 relative">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-4xl text-balance">
@@ -95,21 +101,19 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Our Generator Services</h2>
-          <div className="grid md:grid-cols-5 gap-10 md:gap-16">
-            <div className="md:col-span-3">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+            <div>
               <p className="text-lg leading-relaxed text-foreground/80 mb-6">
                 Generator Repair Services is your trusted partner for all generator-related needs in Gauteng. 
                 From emergency repairs during critical power outages to scheduled maintenance that keeps your 
                 equipment running at peak performance, our experienced technicians handle it all.
               </p>
-              <p className="text-lg leading-relaxed text-foreground/80">
+              <p className="text-lg leading-relaxed text-foreground/80 mb-8">
                 We specialise in diesel and petrol generators of all sizes, from small residential units to 
                 large industrial standby systems. Our team carries the parts and expertise needed to diagnose 
                 and fix issues on the first visit, minimising your downtime and keeping your operations running.
               </p>
-            </div>
-            <div className="md:col-span-2">
-              <ul className="space-y-3">
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
                 {services.map((service) => (
                   <li key={service.href}>
                     <Link
@@ -121,6 +125,15 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="relative aspect-[4/3] md:aspect-auto">
+              <Image
+                src="/images/generator-repair-technician.png"
+                alt="Professional technician repairing a generator"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
