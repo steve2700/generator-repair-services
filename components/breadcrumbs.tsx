@@ -9,20 +9,18 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[]
 }
 
-export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+export function Breadcrumbs({ items }: BreadcrumbsProps) {
   const schemaItems = items.map((item, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: item.label,
     item: item.href ? `https://www.generatorrepairservices.co.za${item.href}` : undefined,
   }))
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: schemaItems,
   }
-
   return (
     <>
       <script
@@ -51,3 +49,5 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     </>
   )
 }
+
+export default Breadcrumbs
