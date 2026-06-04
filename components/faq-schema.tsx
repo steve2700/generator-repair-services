@@ -7,7 +7,7 @@ interface FAQSchemaProps {
   faqs: FAQ[]
 }
 
-export default function FAQSchema({ faqs }: FAQSchemaProps) {
+export function FAQSchema({ faqs }: FAQSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -20,7 +20,6 @@ export default function FAQSchema({ faqs }: FAQSchemaProps) {
       },
     })),
   }
-
   return (
     <script
       type="application/ld+json"
@@ -28,3 +27,5 @@ export default function FAQSchema({ faqs }: FAQSchemaProps) {
     />
   )
 }
+
+export default FAQSchema
