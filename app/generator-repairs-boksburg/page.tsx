@@ -56,7 +56,7 @@ const whyPoints = [
   {
     num: '01',
     title: 'Heavy industrial expertise',
-    body: 'Boksburg's foundries, factories, and engineering operations run large diesel generators under demanding conditions. Our technicians have the experience to service and repair industrial-scale equipment — not just domestic units.',
+    body: "Boksburg's foundries, factories, and engineering operations run large diesel generators under demanding conditions. Our technicians have the experience to service and repair industrial-scale equipment — not just domestic units.",
   },
   {
     num: '02',
