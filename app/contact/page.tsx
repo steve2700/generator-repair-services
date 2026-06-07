@@ -3,267 +3,459 @@ import Link from 'next/link'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Generator Repair Services Gauteng',
-  description: 'Contact Generator Repair Services for expert generator repairs in Gauteng. Call 060 316 0484 for 24/7 emergency service. Free quotes available.',
-  keywords: 'contact generator repair, generator service Gauteng, emergency generator repair contact, generator repairs phone number',
+  title: 'Contact Generator Repair Services Gauteng | Free Quote & Emergency Callouts',
+  description:
+    'Contact Generator Repair Services for expert generator repairs across Gauteng. Call 060 316 0484 for same-day emergency callouts or request a free quote online.',
+  keywords: [
+    'contact generator repair Gauteng',
+    'generator repair quote Johannesburg',
+    'emergency generator repair contact',
+    'generator service phone number Gauteng',
+    'generator repairs WhatsApp Gauteng',
+    'free generator repair quote South Africa',
+  ],
+  alternates: {
+    canonical: 'https://www.generatorrepairservices.co.za/contact',
+  },
+  openGraph: {
+    title: 'Contact Generator Repair Services | Free Quote & Emergency Callouts',
+    description: 'Call 060 316 0484 or request a free quote online. Same-day emergency callouts across all of Gauteng.',
+    url: 'https://www.generatorrepairservices.co.za/contact',
+    type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
 }
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': 'https://www.generatorrepairservices.co.za/contact',
+  name: 'Contact Generator Repair Services',
+  url: 'https://www.generatorrepairservices.co.za/contact',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    '@id': 'https://www.generatorrepairservices.co.za/#business',
+    name: 'Generator Repair Services',
+    telephone: '+27603160484',
+    email: 'info@generatorrepairservices.co.za',
+    url: 'https://www.generatorrepairservices.co.za',
+    areaServed: { '@type': 'State', name: 'Gauteng' },
+    openingHoursSpecification: [
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:00', closes: '18:00' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '14:00' },
+    ],
+  },
+}
+
+const services = [
+  'Generator Repairs',
+  'Generator Servicing',
+  'Emergency Callout',
+  'Maintenance Plan',
+  'Generator Installation',
+  'Load Bank Testing',
+  'AVR / Voltage Repairs',
+  'Control Panel Repairs',
+  'Fuel System Repairs',
+  'Generator Rewinding',
+  'Other',
+]
+
+const hours = [
+  { day: 'Monday – Friday', time: '07:00 – 18:00' },
+  { day: 'Saturday', time: '08:00 – 14:00' },
+  { day: 'Sunday', time: 'Emergency only' },
+]
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-background">
-      <Breadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Contact', href: '/contact' },
-        ]}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
 
-      {/* Hero Section */}
-      <section className="bg-card py-16">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Contact Us
+      {/* ── Breadcrumb ── */}
+      <div className="bg-[#f5f4f0] border-b border-[#1a1a1a]/8">
+        <div className="max-w-6xl mx-auto px-6">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+        </div>
+      </div>
+
+      {/* ── Page hero ── */}
+      <section className="bg-[#0a0a0a] border-b border-[#c8a84b]/15">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+          <p className="text-[#c8a84b] text-xs font-bold tracking-[0.35em] uppercase mb-4">
+            Get In Touch
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4 max-w-2xl">
+            Contact Generator Repair Services
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Get in touch for expert generator repair services across Gauteng
+          <p className="text-white/55 text-lg max-w-xl leading-relaxed">
+            For emergency callouts, free quotes or general enquiries — we are ready
+            to help. Most Gauteng callouts receive a technician within 2–4 hours.
           </p>
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section className="py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Contact Details */}
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Get In Touch</h2>
-              <p className="mt-4 text-muted-foreground">
-                Our team is ready to help with all your generator repair needs. Contact us for a free assessment and quote.
-              </p>
+      {/* ── Quick contact bar ── */}
+      <section className="bg-[#111111] border-b border-white/[0.07]" aria-label="Quick contact options">
+        <div className="max-w-6xl mx-auto px-6 py-5">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a
+              href="tel:0603160484"
+              className="flex items-center justify-center gap-2.5 px-6 py-3 bg-[#b91c1c] text-white font-bold text-sm hover:bg-red-800 transition-colors flex-1 sm:flex-none"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+              </svg>
+              Call 060 316 0484
+            </a>
+            <a
+              href="https://wa.me/27603160484?text=Hi%2C%20I%20need%20help%20with%20generator%20repairs."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 px-6 py-3 bg-[#1a1a1a] border border-white/10 text-white font-bold text-sm hover:border-[#c8a84b]/40 hover:text-[#c8a84b] transition-colors flex-1 sm:flex-none"
+            >
+              {/* WhatsApp SVG */}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp Us
+            </a>
+            <a
+              href="mailto:info@generatorrepairservices.co.za"
+              className="flex items-center justify-center gap-2.5 px-6 py-3 bg-[#1a1a1a] border border-white/10 text-white font-bold text-sm hover:border-[#c8a84b]/40 hover:text-[#c8a84b] transition-colors flex-1 sm:flex-none"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Email Us
+            </a>
+          </div>
+        </div>
+      </section>
 
-              <div className="mt-8 space-y-6">
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
+      {/* ── Main content ── */}
+      <section className="py-14 md:py-20 bg-[#f5f4f0]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-14 items-start">
+
+            {/* ── Left: info ── */}
+            <div className="space-y-10">
+
+              {/* Contact details */}
+              <div className="bg-white border border-[#1a1a1a]/8">
+                <div className="px-7 py-5 border-b border-[#1a1a1a]/8">
+                  <h2 className="font-bold text-[#1a1a1a] text-lg">Contact Details</h2>
+                </div>
+                <div className="divide-y divide-[#1a1a1a]/8">
+
+                  {/* Phone */}
+                  <div className="px-7 py-5 flex items-start gap-5">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#b91c1c]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#1a1a1a]/40 mb-1">Phone</p>
+                      <a href="tel:0603160484" className="text-[#1a1a1a] font-bold text-xl hover:text-[#c8a84b] transition-colors">
+                        060 316 0484
+                      </a>
+                      <p className="text-[#1a1a1a]/50 text-sm mt-0.5">Available for emergencies at any hour</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Phone</h3>
-                    <Link href="tel:0603160484" className="mt-1 text-lg text-primary hover:underline">
-                      060 316 0484
-                    </Link>
-                    <p className="mt-1 text-sm text-muted-foreground">Available 24/7 for emergencies</p>
+
+                  {/* WhatsApp */}
+                  <div className="px-7 py-5 flex items-start gap-5">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#1a1a1a]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#1a1a1a]/40 mb-1">WhatsApp</p>
+                      <a
+                        href="https://wa.me/27603160484?text=Hi%2C%20I%20need%20help%20with%20generator%20repairs."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#1a1a1a] font-bold text-xl hover:text-[#c8a84b] transition-colors"
+                      >
+                        060 316 0484
+                      </a>
+                      <p className="text-[#1a1a1a]/50 text-sm mt-0.5">Quick responses via WhatsApp</p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="px-7 py-5 flex items-start gap-5">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#c8a84b]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#1a1a1a]/40 mb-1">Email</p>
+                      <a
+                        href="mailto:info@generatorrepairservices.co.za"
+                        className="text-[#1a1a1a] font-bold text-base hover:text-[#c8a84b] transition-colors break-all"
+                      >
+                        info@generatorrepairservices.co.za
+                      </a>
+                      <p className="text-[#1a1a1a]/50 text-sm mt-0.5">We respond within 24 hours</p>
+                    </div>
+                  </div>
+
+                  {/* Service area */}
+                  <div className="px-7 py-5 flex items-start gap-5">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center bg-[#f5f4f0] border border-[#1a1a1a]/10">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#1a1a1a]/40 mb-1">Service Area</p>
+                      <p className="text-[#1a1a1a] font-bold text-base">Gauteng Province, South Africa</p>
+                      <p className="text-[#1a1a1a]/50 text-sm mt-0.5">
+                        Johannesburg, Pretoria, Sandton, Midrand, Centurion &amp; all surrounding areas
+                      </p>
+                      <Link href="/areas" className="text-[12px] text-[#c8a84b] hover:text-[#1a1a1a] font-semibold uppercase tracking-wider transition-colors mt-1.5 inline-block">
+                        View all service areas
+                      </Link>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* WhatsApp */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <svg className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">WhatsApp</h3>
-                    <Link 
-                      href="https://wa.me/27603160484?text=Hi%2C%20I%20need%20help%20with%20generator%20repairs."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 text-lg text-primary hover:underline"
-                    >
-                      060 316 0484
-                    </Link>
-                    <p className="mt-1 text-sm text-muted-foreground">Quick responses via WhatsApp</p>
-                  </div>
+              {/* Business hours */}
+              <div className="bg-white border border-[#1a1a1a]/8">
+                <div className="px-7 py-5 border-b border-[#1a1a1a]/8">
+                  <h2 className="font-bold text-[#1a1a1a] text-lg">Business Hours</h2>
                 </div>
-
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email</h3>
-                    <Link href="mailto:info@generatorrepairservices.co.za" className="mt-1 text-primary hover:underline">
-                      info@generatorrepairservices.co.za
-                    </Link>
-                    <p className="mt-1 text-sm text-muted-foreground">We respond within 24 hours</p>
-                  </div>
-                </div>
-
-                {/* Service Area */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <svg className="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Service Area</h3>
-                    <p className="mt-1 text-muted-foreground">
-                      Gauteng Province, South Africa
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      Johannesburg, Pretoria, and all surrounding areas
+                <div className="px-7 py-5">
+                  <dl className="space-y-3">
+                    {hours.map((h) => (
+                      <div key={h.day} className="flex items-center justify-between border-b border-[#1a1a1a]/6 pb-3 last:border-0 last:pb-0">
+                        <dt className="text-sm font-medium text-[#1a1a1a]/70">{h.day}</dt>
+                        <dd className={`text-sm font-bold ${h.time === 'Emergency only' ? 'text-[#b91c1c]' : 'text-[#1a1a1a]'}`}>
+                          {h.time}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <div className="mt-5 flex items-start gap-3 bg-[#b91c1c]/5 border border-[#b91c1c]/15 px-4 py-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#b91c1c] mt-1.5 shrink-0" />
+                    <p className="text-[#b91c1c] text-sm font-medium leading-relaxed">
+                      24/7 emergency service available — call anytime for urgent generator failures
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="mt-10">
-                <h3 className="text-lg font-semibold text-foreground">Business Hours</h3>
-                <div className="mt-4 space-y-2 text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>07:00 - 18:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>08:00 - 14:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed (Emergency only)</span>
-                  </div>
+              {/* Internal links */}
+              <div className="bg-white border border-[#1a1a1a]/8">
+                <div className="px-7 py-5 border-b border-[#1a1a1a]/8">
+                  <h2 className="font-bold text-[#1a1a1a] text-lg">What We Offer</h2>
                 </div>
-                <p className="mt-4 text-sm text-primary">
-                  24/7 Emergency service available - call anytime for urgent repairs
-                </p>
+                <ul className="divide-y divide-[#1a1a1a]/8">
+                  {[
+                    { href: '/services', label: 'View all generator services' },
+                    { href: '/emergency-generator-repair', label: 'Emergency generator repair' },
+                    { href: '/generator-repair-cost', label: 'Generator repair cost guide' },
+                    { href: '/areas', label: 'Full service area coverage' },
+                    { href: '/faq', label: 'Frequently asked questions' },
+                  ].map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="flex items-center justify-between px-7 py-4 text-sm text-[#1a1a1a]/65 hover:text-[#c8a84b] hover:bg-[#f5f4f0] transition-colors group"
+                      >
+                        {item.label}
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-0 group-hover:opacity-100 transition-opacity text-[#c8a84b]" aria-hidden="true">
+                          <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="rounded-lg border border-border bg-card p-6">
-              <h2 className="text-xl font-bold text-foreground">Request a Quote</h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
-              </p>
-
-              <form className="mt-6 space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="Your phone number"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="generator-type" className="block text-sm font-medium text-foreground">
-                    Generator Type/Brand
-                  </label>
-                  <input
-                    type="text"
-                    id="generator-type"
-                    name="generator-type"
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="e.g. Cummins 20kVA"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="location" className="block text-sm font-medium text-foreground">
-                    Location *
-                  </label>
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    required
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="e.g. Sandton, Johannesburg"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground">
-                    Describe the Issue *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    className="mt-1 block w-full rounded-md border border-border bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="Please describe your generator problem or the service you need..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-primary px-4 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  Send Enquiry
-                </button>
-
-                <p className="text-center text-xs text-muted-foreground">
-                  Or call us directly at{' '}
-                  <Link href="tel:0603160484" className="text-primary hover:underline">
-                    060 316 0484
-                  </Link>
+            {/* ── Right: form ── */}
+            <div className="bg-white border border-[#1a1a1a]/8 sticky top-24">
+              <div className="px-7 py-6 border-b border-[#1a1a1a]/8 bg-[#0a0a0a]">
+                <div className="w-8 h-0.5 bg-[#c8a84b] mb-3" />
+                <h2 className="text-white font-black text-xl mb-1">Request a Free Quote</h2>
+                <p className="text-white/45 text-sm">
+                  We respond within 2 hours during business hours.
                 </p>
-              </form>
+              </div>
+
+              <div className="px-7 py-6">
+                <form
+                  method="POST"
+                  action="/api/contact"
+                  className="space-y-4"
+                  aria-label="Generator repair quote request form"
+                >
+                  {/* Name */}
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Full Name <span className="text-[#b91c1c]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                      placeholder="Your full name"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Phone Number <span className="text-[#b91c1c]">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      autoComplete="tel"
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                      placeholder="e.g. 082 123 4567"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      autoComplete="email"
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  {/* Service needed */}
+                  <div>
+                    <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Service Needed <span className="text-[#b91c1c]">*</span>
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                    >
+                      <option value="">Select a service…</option>
+                      {services.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Generator type */}
+                  <div>
+                    <label htmlFor="generator-type" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Generator Brand / Type
+                    </label>
+                    <input
+                      type="text"
+                      id="generator-type"
+                      name="generator-type"
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                      placeholder="e.g. Cummins 20kVA diesel"
+                    />
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <label htmlFor="location" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Location <span className="text-[#b91c1c]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      required
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors"
+                      placeholder="e.g. Sandton, Johannesburg"
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-[#1a1a1a]/50 mb-1.5">
+                      Describe the Issue <span className="text-[#b91c1c]">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      required
+                      className="block w-full border border-[#1a1a1a]/15 bg-[#f5f4f0] px-4 py-2.5 text-sm text-[#1a1a1a] placeholder:text-[#1a1a1a]/35 focus:border-[#c8a84b] focus:outline-none focus:bg-white transition-colors resize-none"
+                      placeholder="Describe your generator fault or the service you require…"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 bg-[#1a1a1a] text-white font-bold text-sm tracking-wide uppercase hover:bg-[#c8a84b] hover:text-[#0a0a0a] transition-colors focus:outline-none focus:ring-2 focus:ring-[#c8a84b] focus:ring-offset-2"
+                  >
+                    Send Enquiry
+                  </button>
+
+                  <p className="text-center text-xs text-[#1a1a1a]/40">
+                    Or call us directly:{' '}
+                    <a href="tel:0603160484" className="text-[#c8a84b] font-semibold hover:text-[#1a1a1a] transition-colors">
+                      060 316 0484
+                    </a>
+                  </p>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Emergency CTA */}
-      <section className="bg-primary py-12">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-primary-foreground">
-            Generator Emergency?
-          </h2>
-          <p className="mt-2 text-primary-foreground/90">
-            Our emergency repair team is available 24/7 across Gauteng
-          </p>
-          <Link
-            href="tel:0603160484"
-            className="mt-6 inline-flex items-center justify-center rounded-md bg-background px-8 py-3 text-base font-medium text-foreground transition-colors hover:bg-background/90"
-          >
-            Call Now: 060 316 0484
-          </Link>
+      {/* ── Emergency CTA ── */}
+      <section className="bg-[#b91c1c] text-white" aria-label="Emergency generator repair CTA">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black mb-2">Generator Emergency?</h2>
+              <p className="text-white/75 text-base">
+                Our emergency team covers all of Gauteng — same-day response, all hours.
+              </p>
+            </div>
+            <a
+              href="tel:0603160484"
+              className="inline-flex items-center justify-center gap-2.5 px-10 py-4 bg-white text-[#b91c1c] font-black text-xl hover:bg-[#f5f4f0] transition-colors shrink-0"
+              aria-label="Call our emergency line: 060 316 0484"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+              </svg>
+              060 316 0484
+            </a>
+          </div>
         </div>
       </section>
-    </main>
+
+      <div className="h-14 md:hidden" aria-hidden="true" />
+    </>
   )
 }
