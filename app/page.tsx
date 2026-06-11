@@ -394,7 +394,7 @@ export default function HomePage() {
             {/* Left: image — full height */}
             <div className="relative min-h-[420px] lg:min-h-full overflow-hidden">
               <Image
-                src="/images/generator-repairs.png"
+                src="/images/generator-repair-services-technicians.webp"
                 alt="Generator Repair Services certified technician inspecting a diesel generator"
                 fill
                 className="object-cover object-center"
