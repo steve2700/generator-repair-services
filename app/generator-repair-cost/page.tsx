@@ -4,255 +4,529 @@ import { Breadcrumbs } from '@/components/breadcrumbs'
 import { FAQSchema } from '@/components/faq-schema'
 
 export const metadata: Metadata = {
-  title: 'Generator Repair Cost South Africa 2024 | Price Guide',
-  description: 'Complete guide to generator repair costs in South Africa. From R500 minor repairs to R15,000+ major overhauls. Get transparent pricing from Generator Repair Services Gauteng.',
-  keywords: 'generator repair cost South Africa, generator service price, how much to fix generator, generator repair rates Gauteng, generator maintenance cost',
+  title: 'Generator Repair Cost South Africa 2026 | Gauteng Price Guide',
+  description:
+    'Transparent generator repair pricing for Gauteng 2026. Minor repairs from R600 to full engine overhauls. Honest written quotes before any work starts. Call 060 316 0484.',
+  keywords: [
+    'generator repair cost South Africa 2026',
+    'generator repair price Gauteng',
+    'how much does generator repair cost',
+    'generator service cost Johannesburg',
+    'generator AVR replacement cost',
+    'generator overhaul cost South Africa',
+    'generator callout fee Gauteng',
+    'generator maintenance cost 2026',
+    'generator rewinding cost Gauteng',
+    'generator repair rates Pretoria',
+  ],
+  alternates: {
+    canonical: 'https://www.generatorrepairservices.co.za/generator-repair-cost',
+  },
+  openGraph: {
+    title: 'Generator Repair Cost South Africa 2026 | Gauteng Price Guide',
+    description:
+      'Transparent generator repair pricing for Gauteng 2026. Minor repairs to full overhauls. Honest written quotes. Call 060 316 0484.',
+    url: 'https://www.generatorrepairservices.co.za/generator-repair-cost',
+    type: 'article',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
+}
+
+const costSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': 'https://www.generatorrepairservices.co.za/generator-repair-cost#article',
+  headline: 'Generator Repair Cost South Africa 2026 — Gauteng Price Guide',
+  description:
+    'Transparent generator repair pricing guide for South Africa 2026. Covering minor repairs, major overhauls, callout fees and factors that affect cost.',
+  dateModified: '2026-01-01',
+  author: {
+    '@type': 'Organization',
+    '@id': 'https://www.generatorrepairservices.co.za/#business',
+    name: 'Generator Repair Services',
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://www.generatorrepairservices.co.za/#business',
+    name: 'Generator Repair Services',
+  },
+  mainEntityOfPage: 'https://www.generatorrepairservices.co.za/generator-repair-cost',
 }
 
 const pricingFaqs = [
   {
-    question: 'How much does a basic generator service cost?',
-    answer: 'A basic generator service including oil change, filter replacement, and inspection costs between R800-R1,500 depending on generator size and oil type required.'
+    question: 'How much does a basic generator service cost in South Africa in 2026?',
+    answer:
+      'A basic generator service including oil change, filter replacement and inspection costs between R900 and R1,800 depending on generator size and oil specification required. Larger diesel generators cost more than small petrol units due to oil volume and filter pricing.',
   },
   {
-    question: 'What is the cost to repair a generator that won\'t start?',
-    answer: 'Diagnosing and repairing starting issues typically costs R500-R3,000. This includes battery testing/replacement, starter motor repairs, fuel system checks, and spark/glow plug replacement.'
+    question: 'What does it cost to repair a generator that will not start?',
+    answer:
+      'Diagnosing and repairing starting failures typically costs R600–R3,500. This covers battery testing and replacement, starter motor inspection, fuel system checks, glow plug or spark plug replacement, and control panel fault diagnosis. Simple faults like a flat battery are at the lower end; starter motor replacements or fuel pump failures fall in the middle range.',
   },
   {
-    question: 'How much does AVR replacement cost?',
-    answer: 'AVR (Automatic Voltage Regulator) replacement costs R2,000-R8,000 depending on the generator brand and AVR type. Original parts cost more than aftermarket alternatives.'
+    question: 'How much does AVR replacement cost in Gauteng?',
+    answer:
+      'AVR (Automatic Voltage Regulator) replacement costs R2,200–R9,000 depending on the generator brand and AVR type. OEM parts cost more than quality aftermarket alternatives. We source the correct match for your unit and test voltage stability under load before sign-off.',
+  },
+  {
+    question: 'Is it worth repairing an old generator or should I replace it?',
+    answer:
+      'As a rule of thumb, if the repair cost exceeds 50–60% of the replacement value of an equivalent unit, replacement is usually the better long-term investment. For generators under 10 years old in otherwise good condition, repair is almost always the better option. We give an honest assessment before quoting so you can make an informed decision.',
+  },
+  {
+    question: 'Are there hidden callout fees?',
+    answer:
+      'No. We provide a clear written assessment of the fault and repair cost before any work begins. Standard callout fees apply for the visit, and the diagnostic assessment is included in the repair cost — you are not charged twice. Emergency after-hours callouts carry a higher callout fee which we communicate upfront.',
   },
 ]
+
+const minorRepairs = [
+  { label: 'Oil & filter change', range: 'R600 – R1,400' },
+  { label: 'Air filter replacement', range: 'R250 – R700' },
+  { label: 'Spark plug replacement (petrol)', range: 'R200 – R500' },
+  { label: 'Glow plug replacement (diesel)', range: 'R900 – R2,800' },
+  { label: 'Battery replacement', range: 'R900 – R2,800' },
+  { label: 'Belt replacement', range: 'R450 – R1,400' },
+  { label: 'Full basic service (inspection + fluids)', range: 'R900 – R1,800' },
+  { label: 'Fuel filter replacement', range: 'R300 – R800' },
+]
+
+const moderateRepairs = [
+  { label: 'Fuel pump repair / replacement', range: 'R1,800 – R4,500' },
+  { label: 'Carburetor cleaning / rebuild', range: 'R900 – R2,200' },
+  { label: 'Starter motor repair / replacement', range: 'R1,400 – R4,000' },
+  { label: 'Cooling system repair', range: 'R1,800 – R5,000' },
+  { label: 'Exhaust system repair', range: 'R1,200 – R3,500' },
+  { label: 'Fuel system cleaning & polishing', range: 'R1,500 – R3,500' },
+  { label: 'Voltage fluctuation diagnosis & repair', range: 'R1,500 – R5,000' },
+]
+
+const majorRepairs = [
+  { label: 'AVR replacement', range: 'R2,200 – R9,000' },
+  { label: 'Control panel repair / reprogramming', range: 'R3,500 – R14,000' },
+  { label: 'Injector replacement (diesel)', range: 'R3,000 – R9,000' },
+  { label: 'Alternator rewinding', range: 'R6,000 – R18,000+' },
+  { label: 'Engine overhaul', range: 'R9,000 – R28,000+' },
+  { label: 'Complete rebuild', range: 'R18,000 – R55,000+' },
+]
+
+const calloutFees = [
+  { label: 'Diagnostic assessment', range: 'FREE with repair' },
+  { label: 'Standard callout (business hours)', range: 'R400 – R700' },
+  { label: 'Emergency callout (after hours)', range: 'R700 – R1,400' },
+  { label: 'Load bank testing', range: 'R2,800 – R5,500' },
+]
+
+const factors = [
+  {
+    title: 'Generator size & kVA rating',
+    body: 'Larger generators require more materials, more oil, larger filters and longer labour time. A 10kVA residential unit costs significantly less to service than a 500kVA industrial standby system.',
+  },
+  {
+    title: 'Brand & model',
+    body: 'Premium brands such as Cummins, Caterpillar and Perkins use quality OEM parts that carry a cost premium. Generic Chinese-built generators often have cheaper parts but sourcing them can be slow and unreliable.',
+  },
+  {
+    title: 'Parts availability',
+    body: 'Common parts are stocked on our vehicles and available immediately. Rare or imported components may need to be ordered — we communicate lead times clearly before work begins.',
+  },
+  {
+    title: 'Repair complexity',
+    body: 'Most repairs are completed on-site on the first visit. Some major faults — alternator rewinds, full engine rebuilds — require workshop time and specialist equipment, which is reflected in the cost.',
+  },
+  {
+    title: 'OEM vs quality aftermarket',
+    body: 'We offer both OEM and quality aftermarket parts depending on your preference and budget. We recommend OEM for critical components and quality aftermarket for serviceable items where supply is reliable.',
+  },
+  {
+    title: 'Emergency vs planned work',
+    body: 'Emergency after-hours callouts carry a higher callout fee than scheduled service appointments. A maintenance contract reduces your emergency risk and often includes discounted callout rates.',
+  },
+]
+
+function PricingRow({ label, range }: { label: string; range: string }) {
+  const isFree = range === 'FREE with repair'
+  return (
+    <div className="flex items-center justify-between py-3.5 border-b border-[#1a1a1a]/8 last:border-0 gap-4">
+      <span className="text-sm text-[#1a1a1a]/75 leading-snug">{label}</span>
+      <span className={`text-sm font-bold shrink-0 ${isFree ? 'text-[#c8a84b]' : 'text-[#1a1a1a]'}`}>
+        {range}
+      </span>
+    </div>
+  )
+}
+
+function PricingCard({
+  title,
+  badge,
+  badgeColor,
+  rows,
+}: {
+  title: string
+  badge: string
+  badgeColor: string
+  rows: { label: string; range: string }[]
+}) {
+  return (
+    <div className="bg-white border border-[#1a1a1a]/8">
+      <div className="px-6 py-5 border-b border-[#1a1a1a]/8 flex items-center justify-between gap-4">
+        <h3 className="font-black text-[#1a1a1a] text-base">{title}</h3>
+        <span className={`text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1 shrink-0 ${badgeColor}`}>
+          {badge}
+        </span>
+      </div>
+      <div className="px-6">
+        {rows.map((row) => (
+          <PricingRow key={row.label} {...row} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function GeneratorRepairCostPage() {
   return (
     <>
       <FAQSchema faqs={pricingFaqs} />
-      <main className="min-h-screen bg-background">
-        <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Generator Repair Cost', href: '/generator-repair-cost' },
-          ]}
-        />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(costSchema) }}
+      />
 
-        {/* Hero Section */}
-        <section className="bg-card py-16">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              Generator Repair Cost Guide
+      {/* ── Breadcrumb ── */}
+      <div className="bg-[#f5f4f0] border-b border-[#1a1a1a]/8">
+        <div className="max-w-6xl mx-auto px-6">
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Generator Repair Cost' },
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* ── Hero ── */}
+      <section className="bg-[#0a0a0a] border-b border-[#c8a84b]/15">
+        <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">
+          <div className="max-w-3xl">
+            <p className="text-[#c8a84b] text-[11px] font-bold tracking-[0.35em] uppercase mb-4">
+              Pricing Guide · 2026
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-5">
+              Generator Repair Cost in Gauteng — 2026 Guide
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Transparent pricing for generator repairs in South Africa - Updated 2024
+            <p className="text-white/55 text-lg leading-relaxed max-w-2xl mb-8">
+              Transparent, up-to-date pricing for every type of generator repair across
+              Gauteng. From a basic service to a full engine overhaul — know what to
+              expect before you call.
             </p>
-          </div>
-        </section>
-
-        {/* Pricing Overview */}
-        <section className="py-16">
-          <div className="mx-auto max-w-4xl px-4">
-            <h2 className="text-2xl font-bold text-foreground">Generator Repair Pricing Overview</h2>
-            <p className="mt-4 text-muted-foreground">
-              Generator repair costs vary based on the type of repair needed, parts required, and generator size. Below is our comprehensive pricing guide to help you budget for generator repairs.
-            </p>
-
-            {/* Minor Repairs */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-foreground border-b border-border pb-2">
-                Minor Repairs & Maintenance (R500 - R2,500)
-              </h3>
-              <div className="mt-4 space-y-3">
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Oil & filter change</span>
-                  <span className="font-medium text-primary">R500 - R1,200</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Air filter replacement</span>
-                  <span className="font-medium text-primary">R200 - R600</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Spark plug replacement (petrol)</span>
-                  <span className="font-medium text-primary">R150 - R400</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Battery replacement</span>
-                  <span className="font-medium text-primary">R800 - R2,500</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Belt replacement</span>
-                  <span className="font-medium text-primary">R400 - R1,200</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Basic service (inspection + fluids)</span>
-                  <span className="font-medium text-primary">R800 - R1,500</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Moderate Repairs */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-foreground border-b border-border pb-2">
-                Moderate Repairs (R1,500 - R5,000)
-              </h3>
-              <div className="mt-4 space-y-3">
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Fuel pump repair/replacement</span>
-                  <span className="font-medium text-primary">R1,500 - R4,000</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Carburetor cleaning/rebuild</span>
-                  <span className="font-medium text-primary">R800 - R2,000</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Starter motor repair</span>
-                  <span className="font-medium text-primary">R1,200 - R3,500</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Glow plug replacement (diesel)</span>
-                  <span className="font-medium text-primary">R800 - R2,500</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Cooling system repair</span>
-                  <span className="font-medium text-primary">R1,500 - R4,500</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Exhaust system repair</span>
-                  <span className="font-medium text-primary">R1,000 - R3,000</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Major Repairs */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-foreground border-b border-border pb-2">
-                Major Repairs (R3,000 - R15,000+)
-              </h3>
-              <div className="mt-4 space-y-3">
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">AVR replacement</span>
-                  <span className="font-medium text-primary">R2,000 - R8,000</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Control panel repair</span>
-                  <span className="font-medium text-primary">R3,000 - R12,000</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Injector replacement (diesel)</span>
-                  <span className="font-medium text-primary">R2,500 - R8,000</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Alternator rewinding</span>
-                  <span className="font-medium text-primary">R5,000 - R15,000+</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Engine overhaul</span>
-                  <span className="font-medium text-primary">R8,000 - R25,000+</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Complete rebuild</span>
-                  <span className="font-medium text-primary">R15,000 - R50,000+</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Service Fees */}
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold text-foreground border-b border-border pb-2">
-                Service & Callout Fees
-              </h3>
-              <div className="mt-4 space-y-3">
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Diagnostic assessment</span>
-                  <span className="font-medium text-primary">FREE with repair</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Standard callout (business hours)</span>
-                  <span className="font-medium text-primary">R350 - R600</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Emergency callout (after hours)</span>
-                  <span className="font-medium text-primary">R600 - R1,200</span>
-                </div>
-                <div className="flex justify-between rounded-md bg-card p-4">
-                  <span className="text-foreground">Load bank testing</span>
-                  <span className="font-medium text-primary">R2,500 - R5,000</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Note */}
-            <div className="mt-10 rounded-lg border border-primary/30 bg-primary/5 p-6">
-              <h3 className="font-semibold text-foreground">Important Notes</h3>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                <li>• Prices are estimates and may vary based on generator brand, model, and condition</li>
-                <li>• Large industrial generators may incur higher costs</li>
-                <li>• Original manufacturer parts cost more than quality aftermarket alternatives</li>
-                <li>• All repairs include our standard 3-month warranty</li>
-                <li>• We provide detailed quotes before starting any work</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Factors Affecting Cost */}
-        <section className="bg-card py-16">
-          <div className="mx-auto max-w-4xl px-4">
-            <h2 className="text-2xl font-bold text-foreground text-center">Factors Affecting Repair Cost</h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              <div className="rounded-lg border border-border bg-background p-6">
-                <h3 className="font-semibold text-foreground">Generator Size</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Larger generators (50kVA+) require more materials, specialised parts, and longer labour times, increasing overall costs.
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-background p-6">
-                <h3 className="font-semibold text-foreground">Brand & Model</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Premium brands like Cummins or Caterpillar use higher-quality parts that cost more. Chinese generators often have cheaper but harder-to-find parts.
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-background p-6">
-                <h3 className="font-semibold text-foreground">Parts Availability</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Common parts are readily available and affordable. Rare or imported parts may need to be ordered, adding time and cost.
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-background p-6">
-                <h3 className="font-semibold text-foreground">Repair Complexity</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Simple repairs can be done on-site quickly. Complex repairs may require workshop time and specialised equipment.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <h2 className="text-2xl font-bold text-foreground">
-              Get a Free Quote for Your Generator Repair
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Contact us for a no-obligation assessment and accurate pricing for your specific generator.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
                 href="tel:0603160484"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-[#b91c1c] text-white font-bold text-base hover:bg-red-800 transition-colors"
               >
-                Call 060 316 0484
-              </Link>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+                </svg>
+                Get a Free Quote
+              </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-border bg-card px-8 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                className="inline-flex items-center justify-center px-7 py-3.5 border border-[#c8a84b]/40 text-[#c8a84b] font-semibold text-base hover:bg-[#c8a84b] hover:text-[#0a0a0a] transition-colors"
               >
-                Request Quote
+                Request Assessment
               </Link>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* ── Key callout bar ── */}
+      <section className="bg-[#111111] border-b border-white/[0.07]">
+        <div className="max-w-6xl mx-auto px-6 py-5">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            {[
+              { label: 'Written quote before any work', highlight: true },
+              { label: 'All brands & generator sizes', highlight: false },
+              { label: 'Diagnostic included with repair', highlight: false },
+              { label: '3-month workmanship warranty', highlight: false },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c8a84b] shrink-0" />
+                <span className={`text-sm ${item.highlight ? 'text-[#c8a84b] font-semibold' : 'text-white/50'}`}>
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Main content ── */}
+      <div className="py-14 md:py-20 bg-[#f5f4f0]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-14 items-start">
+
+            {/* Left: pricing tables */}
+            <div className="space-y-6">
+
+              {/* Intro */}
+              <div className="bg-white border border-[#1a1a1a]/8 px-6 py-6">
+                <p className="text-[#c8a84b] text-[11px] font-bold tracking-[0.35em] uppercase mb-3">Overview</p>
+                <h2 className="text-xl md:text-2xl font-black text-[#1a1a1a] mb-4">
+                  2026 Generator Repair Pricing — Gauteng
+                </h2>
+                <div className="w-8 h-0.5 bg-[#c8a84b] mb-5" />
+                <p className="text-sm leading-relaxed text-[#1a1a1a]/65 mb-3">
+                  Prices below reflect 2026 market rates for Gauteng including parts and labour.
+                  All prices are estimates — the actual cost for your generator depends on its
+                  make, model, size and the specific fault. We provide a written quote after
+                  on-site assessment before any work begins.
+                </p>
+                <p className="text-sm leading-relaxed text-[#1a1a1a]/65">
+                  Prices have been updated to reflect current parts costs and rand exchange rate
+                  movements affecting imported components. Generator repair remains significantly
+                  more cost-effective than replacement in most scenarios.
+                </p>
+              </div>
+
+              {/* Minor */}
+              <PricingCard
+                title="Minor Repairs & Routine Maintenance"
+                badge="R600 – R2,800"
+                badgeColor="bg-[#f5f4f0] text-[#1a1a1a]/60 border border-[#1a1a1a]/10"
+                rows={minorRepairs}
+              />
+
+              {/* Moderate */}
+              <PricingCard
+                title="Moderate Repairs"
+                badge="R900 – R5,000"
+                badgeColor="bg-[#c8a84b]/10 text-[#c8a84b] border border-[#c8a84b]/25"
+                rows={moderateRepairs}
+              />
+
+              {/* Major */}
+              <PricingCard
+                title="Major Repairs & Overhauls"
+                badge="R2,200 – R55,000+"
+                badgeColor="bg-[#b91c1c]/10 text-[#b91c1c] border border-[#b91c1c]/20"
+                rows={majorRepairs}
+              />
+
+              {/* Callout fees */}
+              <PricingCard
+                title="Service & Callout Fees"
+                badge="Transparent pricing"
+                badgeColor="bg-[#0a0a0a] text-white"
+                rows={calloutFees}
+              />
+
+              {/* Disclaimer */}
+              <div className="border-l-2 border-[#c8a84b] bg-white px-6 py-5">
+                <p className="text-[#c8a84b] text-[10px] font-bold tracking-[0.3em] uppercase mb-3">
+                  Important Notes
+                </p>
+                <ul className="space-y-2.5">
+                  {[
+                    'All prices are estimates — your generator may cost more or less depending on make, model and condition.',
+                    'Large industrial generators (100kVA+) typically incur higher labour and parts costs.',
+                    'OEM manufacturer parts cost more than quality aftermarket alternatives — we advise on the best option for your unit.',
+                    'Every repair includes our standard 3-month workmanship warranty on parts and labour.',
+                    'We provide a written quote before starting any work — you decide, no obligation.',
+                    'Prices updated January 2026 and reflect current Gauteng market rates.',
+                  ].map((note) => (
+                    <li key={note} className="flex items-start gap-3 text-sm text-[#1a1a1a]/60 leading-relaxed">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#1a1a1a]/30 shrink-0" />
+                      {note}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Right: sidebar */}
+            <aside className="space-y-5 lg:sticky lg:top-24">
+
+              {/* CTA card */}
+              <div className="bg-[#0a0a0a]">
+                <div className="px-6 pt-6 pb-5">
+                  <div className="w-7 h-0.5 bg-[#c8a84b] mb-4" />
+                  <p className="text-white font-black text-lg leading-snug mb-2">
+                    Get an accurate quote for your generator
+                  </p>
+                  <p className="text-white/45 text-sm mb-5 leading-relaxed">
+                    Call us or send a message — free written assessment, no obligation.
+                  </p>
+                  <a
+                    href="tel:0603160484"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#b91c1c] text-white font-bold text-base hover:bg-red-800 transition-colors mb-3"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+                    </svg>
+                    060 316 0484
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center w-full py-3 border border-white/15 text-white text-sm font-semibold hover:border-[#c8a84b] hover:text-[#c8a84b] transition-colors"
+                  >
+                    Send a Message
+                  </Link>
+                </div>
+              </div>
+
+              {/* Repair vs replace */}
+              <div className="bg-white border border-[#1a1a1a]/8">
+                <div className="px-5 py-4 border-b border-[#1a1a1a]/8">
+                  <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#1a1a1a]/40">Quick Rule</p>
+                </div>
+                <div className="px-5 py-5">
+                  <p className="text-sm font-bold text-[#1a1a1a] mb-2">Repair or Replace?</p>
+                  <p className="text-xs text-[#1a1a1a]/55 leading-relaxed">
+                    If the repair cost exceeds 50–60% of the replacement value of an
+                    equivalent unit, replacement is usually the better long-term investment.
+                    For generators under 10 years old in good condition, repair almost
+                    always wins. We give an honest assessment.
+                  </p>
+                </div>
+              </div>
+
+              {/* Related links */}
+              <div className="bg-white border border-[#1a1a1a]/8">
+                <div className="px-5 py-4 border-b border-[#1a1a1a]/8">
+                  <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#1a1a1a]/40">Related</p>
+                </div>
+                <ul className="divide-y divide-[#1a1a1a]/8">
+                  {[
+                    { href: '/generator-repairs', label: 'Generator Repairs' },
+                    { href: '/generator-servicing', label: 'Generator Servicing' },
+                    { href: '/generator-maintenance', label: 'Maintenance Plans' },
+                    { href: '/emergency-generator-repair', label: 'Emergency Callouts' },
+                    { href: '/faq', label: 'Full FAQ' },
+                  ].map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="flex items-center justify-between px-5 py-3.5 text-sm text-[#1a1a1a]/65 hover:text-[#c8a84b] hover:bg-[#f5f4f0] transition-colors group"
+                      >
+                        {link.label}
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-0 group-hover:opacity-100 transition-opacity text-[#c8a84b]" aria-hidden="true">
+                          <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Factors affecting cost ── */}
+      <section className="py-16 md:py-20 bg-white" aria-labelledby="factors-heading">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-10">
+            <p className="text-[#c8a84b] text-[11px] font-bold tracking-[0.35em] uppercase mb-3">Pricing Factors</p>
+            <h2 id="factors-heading" className="text-2xl md:text-3xl font-black text-[#1a1a1a] leading-tight max-w-xl">
+              What Determines the Final Cost of Your Generator Repair?
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1a1a1a]/8">
+            {factors.map((f, i) => (
+              <div key={f.title} className="bg-white p-6 md:p-7 group hover:bg-[#f5f4f0] transition-colors">
+                <span className="text-[#c8a84b]/25 font-black text-2xl leading-none block mb-3 group-hover:text-[#c8a84b]/50 transition-colors">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-bold text-[#1a1a1a] text-sm mb-2">{f.title}</h3>
+                <p className="text-xs text-[#1a1a1a]/55 leading-relaxed">{f.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 md:py-20 bg-[#f5f4f0]" aria-labelledby="faq-heading">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[320px_1fr] gap-12 lg:gap-16 items-start">
+            <div className="lg:sticky lg:top-24">
+              <p className="text-[#c8a84b] text-[11px] font-bold tracking-[0.35em] uppercase mb-4">Pricing FAQ</p>
+              <h2 id="faq-heading" className="text-2xl md:text-3xl font-black text-[#1a1a1a] leading-tight mb-4">
+                Common Cost Questions
+              </h2>
+              <div className="w-8 h-0.5 bg-[#c8a84b] mb-5" />
+              <p className="text-[#1a1a1a]/50 text-sm leading-relaxed">
+                Straight answers on pricing, quoting and what to expect when you call us.
+              </p>
+            </div>
+            <div className="border-t border-[#1a1a1a]/10">
+              {pricingFaqs.map((faq) => (
+                <details key={faq.question} className="group border-b border-[#1a1a1a]/10">
+                  <summary className="flex items-start justify-between gap-4 py-5 cursor-pointer list-none select-none">
+                    <h3 className="text-sm font-bold text-[#1a1a1a] leading-snug group-open:text-[#c8a84b] transition-colors pr-2">
+                      {faq.question}
+                    </h3>
+                    <span className="shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center border border-[#1a1a1a]/20 group-open:border-[#c8a84b] group-open:bg-[#c8a84b] transition-colors">
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-open:hidden" aria-hidden="true">
+                        <path d="M5 1v8M1 5h8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                      </svg>
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="hidden group-open:block text-white" aria-hidden="true">
+                        <path d="M1 5h8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div className="pb-5 pr-9">
+                    <p className="text-[#1a1a1a]/60 text-sm leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="bg-[#0a0a0a] text-white" aria-label="Get a quote">
+        <div className="max-w-6xl mx-auto px-6 py-14">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div className="max-w-xl">
+              <h2 className="text-2xl md:text-3xl font-black mb-3">
+                Get a Free Quote for Your Generator Repair
+              </h2>
+              <p className="text-white/50 text-base leading-relaxed">
+                Call us or send a message — we assess your generator, explain the fault
+                in plain language and give you a written quote before any work begins.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href="tel:0603160484"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#b91c1c] text-white font-black text-lg hover:bg-red-800 transition-colors"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+                </svg>
+                060 316 0484
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-semibold hover:border-[#c8a84b] hover:text-[#c8a84b] transition-colors"
+              >
+                Request a Quote
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="h-14 md:hidden" aria-hidden="true" />
     </>
   )
 }
+
+
+done
+Done
