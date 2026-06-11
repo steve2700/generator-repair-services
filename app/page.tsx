@@ -597,7 +597,7 @@ export default function HomePage() {
             {/* Left: image */}
             <div className="relative aspect-[4/3] overflow-hidden group order-2 md:order-1">
               <Image
-                src="/images/generator-servicing.png"
+                src="/images/generator-repair-services-technicians.webp"
                 alt="Generator servicing and repair cost guide — professional service across Gauteng"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
