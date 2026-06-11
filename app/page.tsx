@@ -349,7 +349,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-6 lg:sticky lg:top-28">
               <div className="relative aspect-[3/4] overflow-hidden group">
                 <Image
-                  src="/images/generator-repair-technician.png"
+                  src="/images/generator-repair-technician-onsite-midrand.webp"
                   alt="Certified generator repair technician working on a diesel generator in Gauteng"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
