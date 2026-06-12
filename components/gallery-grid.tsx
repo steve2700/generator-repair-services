@@ -2,191 +2,261 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 
-const galleryImages = [
+const categories = ['All', 'Repairs', 'Servicing', 'Maintenance', 'Installation', 'Emergency'] as const
+type Category = (typeof categories)[number]
+
+interface GalleryItem {
+  src: string
+  alt: string
+  caption: string
+  category: Category
+  featured?: boolean
+}
+
+const items: GalleryItem[] = [
   {
-    src: '/images/hero-generator.png',
-    alt: 'Large industrial diesel generator',
-    title: 'Industrial Generator Installation',
-    category: 'Installation',
+    src: '/images/2026-06-11_Generator_Preventative_Maintenance.webp',
+    alt: 'Generator preventative maintenance in Gauteng — June 2026',
+    caption: 'Preventative Maintenance — June 2026',
+    category: 'Maintenance',
+    featured: true,
   },
   {
-    src: '/images/generator-repair-technician.png',
-    alt: 'Technician repairing a generator',
-    title: 'Professional Generator Repair',
+    src: '/images/Industrial_Generator_Repair_Team.webp',
+    alt: 'Industrial generator repair team on-site in Gauteng',
+    caption: 'Industrial Repair Team On-Site',
     category: 'Repairs',
+    featured: true,
   },
   {
-    src: '/images/industrial-generator.png',
-    alt: 'Commercial backup generator system',
-    title: 'Commercial Backup Power System',
-    category: 'Installation',
-  },
-  {
-    src: '/images/control-panel.png',
-    alt: 'Generator control panel with digital display',
-    title: 'Control Panel Diagnostics',
-    category: 'Repairs',
-  },
-  {
-    src: '/images/generator-servicing.png',
-    alt: 'Generator servicing and maintenance',
-    title: 'Routine Maintenance Service',
+    src: '/images/Technician_Servicing_Generator.webp',
+    alt: 'Technician performing a full generator service',
+    caption: 'Full Generator Service',
     category: 'Servicing',
   },
   {
-    src: '/images/emergency-repair.png',
-    alt: 'Emergency generator repair at night',
-    title: 'Emergency Callout Service',
-    category: 'Emergency',
+    src: '/images/compressed_Diesel_Gen_Repair.webp',
+    alt: 'Diesel generator repair — fault diagnosis and fix',
+    caption: 'Diesel Generator Repair',
+    category: 'Repairs',
   },
   {
-    src: '/images/residential-generator.png',
-    alt: 'Residential standby generator installation',
-    title: 'Home Backup Generator',
-    category: 'Installation',
+    src: '/images/compressed_Grip_7.5KVA_Petrol_Generator_Repair.jpg',
+    alt: 'Grip 7.5 kVA petrol generator repair',
+    caption: 'Grip 7.5 kVA Petrol Generator Repair',
+    category: 'Repairs',
   },
   {
-    src: '/images/load-bank-testing.png',
-    alt: 'Load bank testing equipment',
-    title: 'Load Bank Performance Testing',
-    category: 'Testing',
+    src: '/images/compressed_Ryobi_Petrol_Generator_3.5kVA_Maintenance.webp',
+    alt: 'Ryobi 3.5 kVA petrol generator maintenance',
+    caption: 'Ryobi 3.5 kVA Maintenance',
+    category: 'Maintenance',
+  },
+  {
+    src: '/images/expert_generator_maintanance.webp',
+    alt: 'Expert generator maintenance service Gauteng',
+    caption: 'Expert Generator Maintenance',
+    category: 'Maintenance',
+  },
+  {
+    src: '/images/generator-repair-services-technicians.webp',
+    alt: 'Generator Repair Services technicians ready to deploy',
+    caption: 'Our Technician Team',
+    category: 'Repairs',
+  },
+  {
+    src: '/images/generator-repair-technician-onsite-midrand.webp',
+    alt: 'Generator repair technician on-site in Midrand',
+    caption: 'On-Site Repair — Midrand',
+    category: 'Repairs',
   },
   {
     src: '/images/avr-repair.png',
-    alt: 'AVR voltage regulator repair',
-    title: 'AVR Board Repair',
+    alt: 'AVR and voltage regulator repair for generators',
+    caption: 'AVR & Voltage Regulator Repair',
     category: 'Repairs',
+  },
+  {
+    src: '/images/control-panel.png',
+    alt: 'Generator control panel repair and reprogramming',
+    caption: 'Control Panel Repair',
+    category: 'Repairs',
+  },
+  {
+    src: '/images/emergency-repair.png',
+    alt: 'Emergency generator repair callout in Gauteng',
+    caption: 'Emergency Callout Response',
+    category: 'Emergency',
   },
   {
     src: '/images/fuel-system.png',
-    alt: 'Generator fuel system components',
-    title: 'Fuel System Maintenance',
-    category: 'Servicing',
-  },
-  {
-    src: '/images/generator-rewinding.png',
-    alt: 'Generator alternator rewinding',
-    title: 'Alternator Rewinding',
+    alt: 'Generator fuel system repair including injector cleaning',
+    caption: 'Fuel System Repair',
     category: 'Repairs',
   },
   {
-    src: '/images/team-service-van.png',
-    alt: 'Generator repair service vehicle and team',
-    title: 'Mobile Service Team',
-    category: 'Team',
+    src: '/images/generator-repair-technician.png',
+    alt: 'Generator repair technician on site',
+    caption: 'Generator Repair Technician',
+    category: 'Servicing',
   },
 ]
 
-const categories = ['All', 'Repairs', 'Servicing', 'Installation', 'Testing', 'Emergency', 'Team']
-
 export default function GalleryGrid() {
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [lightboxImage, setLightboxImage] = useState<typeof galleryImages[0] | null>(null)
+  const [active, setActive] = useState<Category>('All')
+  const [lightbox, setLightbox] = useState<GalleryItem | null>(null)
 
-  const filteredImages = selectedCategory === 'All' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory)
+  const filtered = active === 'All' ? items : items.filter((i) => i.category === active)
+
+  const counts = categories.reduce<Record<string, number>>((acc, cat) => {
+    acc[cat] = cat === 'All' ? items.length : items.filter((i) => i.category === cat).length
+    return acc
+  }, {})
 
   return (
     <>
-      {/* Category Filter */}
+      {/* Filter bar */}
       <div className="flex flex-wrap gap-2 mb-10">
-        {categories.map((category) => (
+        {categories.map((cat) => (
           <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
-              selectedCategory === category
-                ? 'bg-brand-gold text-brand-black'
-                : 'bg-brand-surface text-foreground hover:bg-brand-gold/20'
+            key={cat}
+            onClick={() => setActive(cat)}
+            className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all border ${
+              active === cat
+                ? 'bg-[#c8a84b] text-[#0a0a0a] border-[#c8a84b]'
+                : 'bg-transparent text-[#1a1a1a]/60 border-[#1a1a1a]/15 hover:border-[#c8a84b]/50 hover:text-[#c8a84b]'
             }`}
           >
-            {category}
+            {cat}
+            <span
+              className={`text-xs font-bold tabular-nums ${
+                active === cat ? 'text-[#0a0a0a]/60' : 'text-[#1a1a1a]/35'
+              }`}
+            >
+              {counts[cat]}
+            </span>
           </button>
         ))}
       </div>
 
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredImages.map((image, index) => (
-          <button
-            key={index}
-            onClick={() => setLightboxImage(image)}
-            className="group relative aspect-[4/3] overflow-hidden bg-brand-surface cursor-pointer"
+      {/* Masonry-style grid */}
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {filtered.map((item) => (
+          <div
+            key={item.src}
+            className="break-inside-avoid group relative overflow-hidden cursor-pointer"
+            onClick={() => setLightbox(item)}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <span className="text-brand-gold text-xs font-medium uppercase tracking-wider">{image.category}</span>
-                <h3 className="text-brand-white font-semibold mt-1">{image.title}</h3>
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#c8a84b] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#c8a84b] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <div className={`relative w-full overflow-hidden ${item.featured ? 'aspect-[16/10]' : 'aspect-[4/3]'}`}>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-[#0a0a0a]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Category pill */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="px-2.5 py-1 text-[10px] font-bold tracking-widest uppercase bg-[#0a0a0a]/70 text-[#c8a84b] backdrop-blur-sm">
+                  {item.category}
+                </span>
+              </div>
+
+              {/* Caption on hover */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                <p className="text-white font-semibold text-sm leading-snug">{item.caption}</p>
+              </div>
+
+              {/* Expand icon */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-[#c8a84b] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M2 2h5M2 2v5M14 2h-5M14 2v5M2 14h5M2 14v-5M14 14h-5M14 14v-5" stroke="#0a0a0a" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>
               </div>
             </div>
-          </button>
+          </div>
         ))}
       </div>
 
       {/* Lightbox */}
-      {lightboxImage && (
-        <div 
-          className="fixed inset-0 z-50 bg-brand-black/95 flex items-center justify-center p-4"
-          onClick={() => setLightboxImage(null)}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a]/95 backdrop-blur-sm p-4"
+          onClick={() => setLightbox(null)}
         >
-          <button
-            onClick={() => setLightboxImage(null)}
-            className="absolute top-6 right-6 text-brand-white hover:text-brand-gold transition-colors"
-            aria-label="Close lightbox"
+          <div
+            className="relative max-w-4xl w-full"
+            onClick={(e) => e.stopPropagation()}
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div className="max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="relative aspect-[16/10] bg-brand-surface">
+            {/* Close */}
+            <button
+              onClick={() => setLightbox(null)}
+              className="absolute -top-10 right-0 text-white/60 hover:text-[#c8a84b] transition-colors text-sm font-semibold flex items-center gap-2"
+              aria-label="Close lightbox"
+            >
+              Close
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+            </button>
+
+            {/* Gold accent line */}
+            <div className="w-full h-0.5 bg-[#c8a84b] mb-1" />
+
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
               <Image
-                src={lightboxImage.src}
-                alt={lightboxImage.alt}
+                src={lightbox.src}
+                alt={lightbox.alt}
                 fill
                 className="object-contain"
                 sizes="100vw"
               />
             </div>
-            <div className="mt-4 text-center">
-              <span className="text-brand-gold text-sm font-medium uppercase tracking-wider">{lightboxImage.category}</span>
-              <h3 className="text-brand-white text-xl font-semibold mt-1">{lightboxImage.title}</h3>
+
+            <div className="mt-3 flex items-center justify-between">
+              <p className="text-white font-semibold text-sm">{lightbox.caption}</p>
+              <span className="text-[10px] font-bold tracking-widest uppercase text-[#c8a84b]">
+                {lightbox.category}
+              </span>
+            </div>
+
+            {/* Prev / Next */}
+            <div className="flex gap-2 mt-4">
+              {(() => {
+                const idx = filtered.findIndex((i) => i.src === lightbox.src)
+                const prev = filtered[idx - 1]
+                const next = filtered[idx + 1]
+                return (
+                  <>
+                    <button
+                      disabled={!prev}
+                      onClick={() => prev && setLightbox(prev)}
+                      className="px-4 py-2 text-xs font-bold border border-white/15 text-white/50 hover:border-[#c8a84b]/50 hover:text-[#c8a84b] transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+                    >
+                      ← Previous
+                    </button>
+                    <button
+                      disabled={!next}
+                      onClick={() => next && setLightbox(next)}
+                      className="px-4 py-2 text-xs font-bold border border-white/15 text-white/50 hover:border-[#c8a84b]/50 hover:text-[#c8a84b] transition-colors disabled:opacity-20 disabled:cursor-not-allowed"
+                    >
+                      Next →
+                    </button>
+                  </>
+                )
+              })()}
             </div>
           </div>
         </div>
       )}
-
-      {/* CTA */}
-      <div className="mt-16 text-center">
-        <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
-          Need generator repair, servicing, or installation? Our experienced team is ready to help 
-          with any generator project across Gauteng.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="tel:0603160484"
-            className="inline-flex items-center justify-center px-8 py-4 bg-brand-red text-brand-white font-semibold hover:bg-red-800 transition-colors"
-          >
-            Call 060 316 0484
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 border-2 border-brand-gold text-brand-gold font-semibold hover:bg-brand-gold hover:text-brand-black transition-colors"
-          >
-            Get a Free Quote
-          </Link>
-        </div>
-      </div>
     </>
   )
 }
