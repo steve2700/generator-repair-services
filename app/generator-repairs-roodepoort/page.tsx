@@ -115,7 +115,7 @@ export default function RoodepoortPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/areas/roodepoort.png"
+            src="/images/generator-repair-services-technicians.webp"
             alt="Generator repair and servicing across Roodepoort — mobile technicians covering all Roodepoort suburbs and industrial areas"
             fill
             priority
