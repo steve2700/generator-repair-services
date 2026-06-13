@@ -104,7 +104,7 @@ export default function GermistonPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/areas/germiston.png"
+            src="/images/generator-repair-technician-onsite-midrand.webp"
             alt="Generator repair and servicing across Germiston — mobile technicians covering industrial, commercial and residential areas"
             fill
             priority
