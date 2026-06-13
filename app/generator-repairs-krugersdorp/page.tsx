@@ -104,7 +104,7 @@ export default function KrugersdorpPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/areas/krugersdorp.png"
+            src="/images/generator-repair-services-technicians.webp"
             alt="Generator repair and servicing across Krugersdorp and the West Rand — mobile technicians covering all areas"
             fill
             priority
