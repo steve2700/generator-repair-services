@@ -53,7 +53,7 @@ const regions = [
   {
     name: 'Johannesburg & CBD',
     description: 'The economic heart of South Africa. We serve all Johannesburg suburbs, business districts and industrial zones.',
-    image: '/images/areas/johannesburg.png',
+    image: '/images/2026-06-11_Generator_Preventative_Maintenance.webp',
     imageAlt: 'Generator repairs in Johannesburg CBD and surrounding suburbs',
     areas: [
       { slug: 'johannesburg', name: 'Johannesburg' },
@@ -67,7 +67,7 @@ const regions = [
   {
     name: 'Pretoria & North',
     description: 'Full coverage across Pretoria and the northern Gauteng corridor — from Centurion to Midrand.',
-    image: '/images/areas/pretoria.png',
+    image: '/images/Industrial_Generator_Repair_Team.webp',
     imageAlt: 'Generator repair services in Pretoria and northern Gauteng',
     areas: [
       { slug: 'pretoria', name: 'Pretoria' },
@@ -79,7 +79,7 @@ const regions = [
   {
     name: 'East Rand',
     description: 'Serving the industrial and residential areas of the East Rand — from Kempton Park through to Springs.',
-    image: '/images/areas/east-rand.png',
+    image: '/images/Technician_Servicing_Generator.webp',
     imageAlt: 'Generator repairs across the East Rand including Boksburg, Benoni and Germiston',
     areas: [
       { slug: 'kempton-park', name: 'Kempton Park' },
@@ -94,7 +94,7 @@ const regions = [
   {
     name: 'South Gauteng',
     description: 'Coverage across the Vaal Triangle and southern Gauteng industrial corridor.',
-    image: '/images/areas/vereeniging.png',
+    image: '/images/generator-repair-services-technicians.webp',
     imageAlt: 'Generator repair services in Vereeniging and south Gauteng',
     areas: [
       { slug: 'vereeniging', name: 'Vereeniging' },
