@@ -122,7 +122,7 @@ export default function AVRRepairsPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/avr-repairs-hero.png"
+            src="/images/avr-repair-technician.png"
             alt="Automatic voltage regulator AVR repair and replacement for generators in Gauteng"
             fill
             priority
