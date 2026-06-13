@@ -104,7 +104,7 @@ export default function BenoniPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/areas/benoni.png"
+            src="/images/generator-repair-technician-onsite-midrand.webp"
             alt="Generator repair and servicing across Benoni — mobile technicians covering commercial, industrial and residential areas on the East Rand"
             fill
             priority
