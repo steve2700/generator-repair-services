@@ -111,7 +111,7 @@ export default function GeneratorRepairsPage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/generator-repairs.png"
+            src="/images/Industrial_Generator_Repair_Team.webp"
             alt="Generator repair technician diagnosing a diesel generator fault in Gauteng"
             fill
             priority
