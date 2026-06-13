@@ -104,7 +104,7 @@ export default function EdenvalePage() {
       <section className="relative bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/areas/edenvale.png"
+            src="/images/generator-repair-technician-onsite-midrand.webp"
             alt="Generator repair and servicing across Edenvale — mobile technicians covering commercial, airport-corridor and residential areas"
             fill
             priority
