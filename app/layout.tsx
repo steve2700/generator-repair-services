@@ -11,18 +11,19 @@ import OrganizationSchema from '@/components/organization-schema'
 const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
-const BASE_URL = 'https://www.generatorrepairservices.co.za'
+const BASE_URL = 'https://www.generatorgents.co.za'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: 'Generator Repair Services Gauteng | Expert Repairs, Servicing & Maintenance',
-    template: '%s | Generator Repair Services',
+    default: 'Generator Gents Gauteng | Generator Repairs, Servicing & Maintenance',
+    template: '%s | Generator Gents',
   },
   description:
-    'Professional generator repair, servicing and maintenance across Gauteng. Same-day emergency callouts. All brands — diesel, petrol, industrial. Serving Johannesburg, Pretoria, Sandton & all Gauteng areas. Call 060 316 0484.',
+    'Generator Gents — Power. Precision. Professionalism. Expert generator repair, servicing and maintenance across Gauteng. Same-day emergency callouts for all brands — diesel, petrol, industrial. Serving Johannesburg, Pretoria, Sandton & all Gauteng areas. Call 076 347 3736.',
   keywords: [
+    'Generator Gents',
     'generator repair Gauteng',
     'generator repairs Johannesburg',
     'generator servicing Pretoria',
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     'industrial generator repairs Gauteng',
     'generator repairs Sandton',
   ],
-  authors: [{ name: 'Generator Repair Services', url: BASE_URL }],
-  creator: 'Generator Repair Services',
-  publisher: 'Generator Repair Services',
+  authors: [{ name: 'Generator Gents', url: BASE_URL }],
+  creator: 'Generator Gents',
+  publisher: 'Generator Gents',
 
   // ── Favicons & icons ──────────────────────────────────────────────
   icons: {
@@ -44,13 +45,16 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-64x64.png', sizes: '64x64', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
+      // SVG favicon — best quality, scales to any size
+      { url: '/generator_gents_logo.svg', type: 'image/svg+xml' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'mask-icon', url: '/favicon.ico' },
+      { rel: 'mask-icon', url: '/generator_gents_logo.svg', color: '#c8a84b' },
     ],
   },
 
@@ -62,16 +66,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_ZA',
     url: BASE_URL,
-    siteName: 'Generator Repair Services',
-    title: 'Generator Repair Services Gauteng | Expert Repairs & Servicing',
+    siteName: 'Generator Gents',
+    title: 'Generator Gents Gauteng | Power. Precision. Professionalism.',
     description:
-      'Professional generator repair, servicing and maintenance across Gauteng. Same-day emergency callouts. All brands. Call 060 316 0484.',
+      'Expert generator repair, servicing and maintenance across Gauteng. Same-day emergency callouts. All brands. Call 076 347 3736.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Generator Repair Services — Power When You Need It, Fixed Right, The First Time',
+        alt: 'Generator Gents — Power. Precision. Professionalism. Gauteng generator specialists',
         type: 'image/jpeg',
       },
     ],
@@ -80,9 +84,9 @@ export const metadata: Metadata = {
   // ── Twitter / X ───────────────────────────────────────────────────
   twitter: {
     card: 'summary_large_image',
-    title: 'Generator Repair Services Gauteng | Expert Repairs & Servicing',
+    title: 'Generator Gents Gauteng | Power. Precision. Professionalism.',
     description:
-      'Same-day emergency callouts. All brands. Diesel & petrol generators. Serving all of Gauteng. Call 060 316 0484.',
+      'Same-day emergency callouts. All brands. Diesel & petrol generators. Serving all of Gauteng. Call 076 347 3736.',
     images: ['/og-image.jpg'],
   },
 
@@ -105,7 +109,7 @@ export const metadata: Metadata = {
   },
 
   // ── Misc ──────────────────────────────────────────────────────────
-  category: 'Generator Repair Services',
+  category: 'Generator Repairs & Servicing',
   formatDetection: {
     telephone: true,
     email: true,
