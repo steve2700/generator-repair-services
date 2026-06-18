@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const services = [
@@ -67,19 +68,6 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
-const tickerItems = [
-  '⚡ Generator Repairs from R450',
-  '🔧 Full Service & Oil Change from R850',
-  '🚨 Emergency Callouts — Same Day',
-  '⚙️ AVR / Voltage Repairs from R600',
-  '🛠️ Control Panel Repairs from R750',
-  '💧 Fuel System Repairs from R500',
-  '📋 Maintenance Plans from R1 200/yr',
-  '🔌 Load Bank Testing from R950',
-  '🏗️ Generator Installation — Free Quote',
-  '🔄 Alternator Rewinding from R1 800',
-]
-
 type DropdownKey = 'services' | 'areas' | null
 
 export default function SiteHeader() {
@@ -123,8 +111,6 @@ export default function SiteHeader() {
   const isAreaActive = (path: string) =>
     path === '/areas' || path.includes('generator-repairs-')
 
-  const tickerContent = [...tickerItems, ...tickerItems].join('   ·   ')
-
   return (
     <header
       ref={headerRef}
@@ -134,50 +120,36 @@ export default function SiteHeader() {
           : 'bg-[#0a0a0a]'
       }`}
     >
-      {/* ── Repair Cost Ticker ── */}
-      <div className="bg-[#111111] border-b border-[#c8a84b]/20 overflow-hidden h-7 flex items-center">
-        <div
-          className="whitespace-nowrap text-[10px] font-semibold tracking-wide text-white/50"
-          style={{
-            display: 'inline-block',
-            animation: 'ticker-scroll 45s linear infinite',
-          }}
-          aria-hidden="true"
-        >
-          {tickerContent}
-          &nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;
-          {tickerContent}
+      {/* ── Top bar ── */}
+      <div className="hidden md:block border-b border-white/[0.07]">
+        <div className="max-w-6xl mx-auto px-6 h-9 flex justify-between items-center">
+          <p className="text-white/40 text-xs tracking-wide">
+            Serving all of Gauteng — Johannesburg · Pretoria · Sandton · Centurion &amp; more
+          </p>
+          <a
+            href="tel:0603160484"
+            className="text-[#c8a84b] hover:text-white transition-colors text-xs font-semibold tracking-widest"
+          >
+            060 316 0484
+          </a>
         </div>
-        <style>{`
-          @keyframes ticker-scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            [style*="ticker-scroll"] { animation: none; }
-          }
-        `}</style>
       </div>
 
       {/* ── Main nav ── */}
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16 md:h-[66px]">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0 group" aria-label="Generator Gents — home">
-            <span className="relative block h-10 w-10 shrink-0">
-              <img
-                src="/generator_gents_logo.svg"
-                alt="Generator Gents"
-                className="absolute inset-0 h-full w-full object-contain"
-              />
-            </span>
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group" aria-label="Generator Repair Services — home">
+            <Image src="/logo_lite.png" alt="Generator Repair Services" width={36} height={36} className="object-contain" priority />
             <div className="leading-none hidden sm:block">
-              <span className="block text-white font-black text-[11px] tracking-[0.2em] uppercase group-hover:text-[#c8a84b] transition-colors">
-                Generator Gents
+              <span className="block text-white font-black text-[12px] tracking-[0.2em] uppercase group-hover:text-[#c8a84b] transition-colors">
+                Generator
               </span>
-              <span className="block text-[#c8a84b] text-[8px] font-bold tracking-[0.25em] uppercase mt-0.5">
-                Power · Precision · Pro
+              <span className="flex items-center gap-1 mt-[2px]">
+                <span className="block h-px w-2.5 bg-[#c8a84b]" />
+                <span className="text-[#c8a84b] text-[8px] font-bold tracking-[0.3em] uppercase">Repair Services</span>
+                <span className="block h-px w-2.5 bg-[#c8a84b]" />
               </span>
             </div>
           </Link>
@@ -244,8 +216,8 @@ export default function SiteHeader() {
                             <Link href="/services" className="text-[12px] text-[#c8a84b] hover:text-white font-semibold tracking-wide uppercase transition-colors">
                               View all services
                             </Link>
-                            <a href="tel:+27763473736" className="text-[12px] text-white/35 hover:text-white transition-colors">
-                              Emergency: 076 347 3736
+                            <a href="tel:0603160484" className="text-[12px] text-white/35 hover:text-white transition-colors">
+                              Emergency: 060 316 0484
                             </a>
                           </div>
                         </div>
@@ -318,26 +290,21 @@ export default function SiteHeader() {
             })}
           </nav>
 
-          {/* Desktop CTA + phone */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:+27763473736"
-              className="text-white/40 hover:text-[#c8a84b] transition-colors text-[11px] tracking-widest font-semibold"
-            >
-              076 347 3736
-            </a>
-            <a
-              href="tel:+27763473736"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#b91c1c] text-white text-[12px] font-bold tracking-wide hover:bg-red-800 transition-colors"
-            >
-              Call Now
-            </a>
-          </div>
+          {/* Desktop CTA */}
+          <a
+            href="tel:0603160484"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-[#b91c1c] text-white text-[13px] font-bold tracking-wide hover:bg-red-800 transition-colors shrink-0"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+            Call Now
+          </a>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsMenuOpen((v) => !v)}
-            className="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-[5px] text-white focus:outline-none focus:ring-2 focus:ring-[#c8a84b] focus:ring-offset-1 focus:ring-offset-[#0a0a0a]"
+            className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-[5px] text-white focus:outline-none focus:ring-2 focus:ring-[#c8a84b] focus:ring-offset-1 focus:ring-offset-[#0a0a0a]"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav"
@@ -362,7 +329,7 @@ export default function SiteHeader() {
             {navLinks.map((link) => {
               const active = pathname === link.href
 
-              {/* ── Mobile Services accordion ── */}
+              /* ── Mobile Services accordion ── */
               if (link.dropdown === 'services') {
                 return (
                   <li key={link.href}>
@@ -401,7 +368,7 @@ export default function SiteHeader() {
                 )
               }
 
-              {/* ── Mobile Areas accordion ── */}
+              /* ── Mobile Areas accordion ── */
               if (link.dropdown === 'areas') {
                 return (
                   <li key={link.href}>
@@ -465,10 +432,13 @@ export default function SiteHeader() {
           </ul>
 
           <a
-            href="tel:+27763473736"
+            href="tel:0603160484"
             className="mt-5 flex items-center justify-center gap-2.5 w-full py-4 bg-[#b91c1c] text-white font-bold text-[15px] tracking-wide hover:bg-red-800 transition-colors"
           >
-            Call 076 347 3736
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+            Call 060 316 0484
           </a>
         </div>
       </div>
