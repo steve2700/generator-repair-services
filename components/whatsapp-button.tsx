@@ -10,6 +10,15 @@ export default function WhatsAppButton() {
   const phoneNumber = '27603160484'
   const message = encodeURIComponent("Hi Generator Repair Services! I'd like to enquire about your services.")
 
+  // Live conversion tracking function using your Google Ads Label
+  const handleWhatsAppClick = () => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-18328564945/wrz6CNb4x9EcENHp3qNE',
+      });
+    }
+  }
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Tooltip */}
@@ -23,11 +32,12 @@ export default function WhatsAppButton() {
         <div className="absolute top-full right-6 border-8 border-transparent border-t-[#1a1a1a]" />
       </div>
 
-      {/* WhatsApp Button - Plain styled button per design requirements */}
+      {/* WhatsApp Button - Tracks clicks with onClick */}
       <a
         href={`https://wa.me/${phoneNumber}?text=${message}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
         className="relative flex items-center justify-center px-5 py-3 bg-[#1a1a1a] text-[#c8a84b] font-medium border border-[#c8a84b] shadow-lg hover:bg-[#c8a84b] hover:text-[#1a1a1a] transition-all duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
