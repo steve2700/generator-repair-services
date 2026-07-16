@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { GoogleTagManager } from '@next/third-parties/google' // Import Next.js Google component
 import './globals.css'
 import SiteHeader from '@/components/site-header'
 import SiteFooter from '@/components/site-footer'
@@ -145,6 +146,8 @@ export default function RootLayout({
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <SpeedInsights />
       </body>
+      {/* Renders your Google Tag in production securely and quickly */}
+      <GoogleTagManager gtmId="AW-18328564945" />
     </html>
   )
 }
