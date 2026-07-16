@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { GoogleTagManager } from '@next/third-parties/google' // Import Next.js Google component
+import Script from 'next/script' // Built-in Next.js Script Loader (No installation needed!)
 import './globals.css'
 import SiteHeader from '@/components/site-header'
 import SiteFooter from '@/components/site-footer'
@@ -137,6 +137,20 @@ export default function RootLayout({
         <meta name="msapplication-config" content="none" />
       </head>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col">
+        {/* Google Tag (gtag.js) Loaded Safely */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18328564945"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18328564945');
+          `}
+        </Script>
+
         <SiteHeader />
         <main className="flex-1" id="main-content">
           {children}
@@ -146,8 +160,6 @@ export default function RootLayout({
         {process.env.NODE_ENV === 'production' && <Analytics />}
         <SpeedInsights />
       </body>
-      {/* Renders your Google Tag in production securely and quickly */}
-      <GoogleTagManager gtmId="AW-18328564945" />
     </html>
   )
 }
