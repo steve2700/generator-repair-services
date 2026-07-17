@@ -10,13 +10,23 @@ export default function WhatsAppButton() {
   const phoneNumber = '27603160484'
   const message = encodeURIComponent("Hi Generator Repair Services! I'd like to enquire about your services.")
 
-  // Live conversion tracking function using your Google Ads Label
-  const handleWhatsAppClick = () => {
+  // Live conversion tracking function with window redirect delay to prevent tag dropping
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // 1. Stop the browser from instantly navigating away
+    e.preventDefault()
+
+    // 2. Fire the Google Ads conversion event safely
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
         'send_to': 'AW-18328564945/wrz6CNb4x9EcENHp3qNE',
       });
     }
+
+    // 3. Open WhatsApp in a new tab after a 150ms transmission window
+    const url = `https://wa.me/${phoneNumber}?text=${message}`
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }, 150)
   }
 
   return (
@@ -32,7 +42,7 @@ export default function WhatsAppButton() {
         <div className="absolute top-full right-6 border-8 border-transparent border-t-[#1a1a1a]" />
       </div>
 
-      {/* WhatsApp Button - Tracks clicks with onClick */}
+      {/* WhatsApp Button - Tracks clicks with delay handler */}
       <a
         href={`https://wa.me/${phoneNumber}?text=${message}`}
         target="_blank"
