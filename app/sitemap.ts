@@ -5,16 +5,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString()
 
   const mainPages = [
-    { url: baseUrl,                                    priority: 1.0, changeFrequency: 'weekly'  as const },
-    { url: `${baseUrl}/services`,                      priority: 0.9, changeFrequency: 'weekly'  as const },
-    { url: `${baseUrl}/areas`,                         priority: 0.9, changeFrequency: 'weekly'  as const },
-    { url: `${baseUrl}/generator-repair-cost`,         priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${baseUrl}/contact`,                       priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: `${baseUrl}/gallery`,                       priority: 0.8, changeFrequency: 'weekly'  as const },
-    { url: `${baseUrl}/faq`,                           priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: `${baseUrl}/about`,                         priority: 0.7, changeFrequency: 'monthly' as const },
-    { url: `${baseUrl}/privacy-policy`,                priority: 0.5, changeFrequency: 'yearly'  as const },
-    { url: `${baseUrl}/terms`,                         priority: 0.5, changeFrequency: 'yearly'  as const },
+    { url: baseUrl,                                        priority: 1.0, changeFrequency: 'weekly'  as const },
+    { url: `${baseUrl}/services`,                          priority: 0.9, changeFrequency: 'weekly'  as const },
+    { url: `${baseUrl}/areas`,                             priority: 0.9, changeFrequency: 'weekly'  as const },
+    { url: `${baseUrl}/generator-repair-cost`,             priority: 0.9, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/generator-repairs-near-me`,         priority: 0.9, changeFrequency: 'weekly'  as const },
+    { url: `${baseUrl}/contact`,                           priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/gallery`,                           priority: 0.8, changeFrequency: 'weekly'  as const },
+    { url: `${baseUrl}/faq`,                               priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/about`,                             priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/privacy-policy`,                    priority: 0.3, changeFrequency: 'yearly'  as const },
+    { url: `${baseUrl}/terms`,                             priority: 0.3, changeFrequency: 'yearly'  as const },
   ]
 
   const servicePages = [
@@ -30,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'generator-rewinding',
   ].map((service) => ({
     url: `${baseUrl}/${service}`,
-    priority: 0.8,
+    priority: 0.85,
     changeFrequency: 'weekly' as const,
   }))
 
