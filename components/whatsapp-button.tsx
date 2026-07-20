@@ -5,21 +5,21 @@ import { cn } from '@/lib/utils'
 
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
-  
-  // Phone number 060 316 0484 formatted for WhatsApp (South Africa country code 27, drop the leading 0)
+
+  // Phone number 060 316 0484 formatted for WhatsApp
   const phoneNumber = '27603160484'
   const message = encodeURIComponent("Hi Generator Repair Services! I'd like to enquire about your services.")
 
   // Live conversion tracking function with window redirect delay to prevent tag dropping
   const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // 1. Stop the browser from instantly navigating away
+    // 1. Prevent default navigation briefly to ensure tracking fires
     e.preventDefault()
 
     // 2. Fire the Google Ads conversion event safely
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-18328564945/wrz6CNb4x9EcENHp3qNE',
-      });
+        send_to: 'AW-18328564945/wrz6CNb4x9EcENHp3qNE',
+      })
     }
 
     // 3. Open WhatsApp in a new tab after a 150ms transmission window
@@ -48,7 +48,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleWhatsAppClick}
-        className="relative flex items-center justify-center px-5 py-3 bg-[#1a1a1a] text-[#c8a84b] font-medium border border-[#c8a84b] shadow-lg hover:bg-[#c8a84b] hover:text-[#1a1a1a] transition-all duration-300"
+        className="relative flex items-[#c8a84b] items-center justify-center px-5 py-3 bg-[#1a1a1a] text-[#c8a84b] font-medium border border-[#c8a84b] shadow-lg hover:bg-[#c8a84b] hover:text-[#1a1a1a] transition-all duration-300"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         aria-label="Chat on WhatsApp"
